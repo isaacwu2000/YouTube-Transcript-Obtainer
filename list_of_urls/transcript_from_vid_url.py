@@ -17,7 +17,8 @@ def get_youtube_transcript(video_id):
         return transcript
     except Exception as e:
         return f"An error occurred: {str(e)}"
-    
+
+# Testing: 
 video_url = input("Enter the YouTube video URL: ")
 transcript = get_youtube_transcript(get_video_id_from_url(video_url))
 print(f"\nTranscript of the video:\n{transcript}")
