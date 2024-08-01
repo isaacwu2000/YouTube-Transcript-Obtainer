@@ -9,8 +9,8 @@ Run main.py with 2 command-line arguements:\
 (Ignore the filename as a command-line arguement for these instructions)
 
 The first command-line arguement should be:\
-&emsp;- '1' for a transcript of all of a channels videos\
-&emsp;- '2' for a transcript of all of a playlists videos\
+&emsp;- '1' for a transcript of all of a channel's videos\
+&emsp;- '2' for a transcript of all of a playlist's videos\
 &emsp;- '3' for a transcript of all of the videos in a list of urls
     
 The second command- line arguement should be:\
