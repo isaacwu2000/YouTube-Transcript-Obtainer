@@ -44,7 +44,7 @@ def main():
         except Exception as e:
             return e
     else:
-        return "Please enter a valid first command-line arguement (not including file name). Read README.md for more information.
+        return "Please enter a valid first command-line arguement (not including file name). Read README.md for more information."
     
 
 
