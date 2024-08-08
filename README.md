@@ -17,3 +17,5 @@ The second command- line arguement should be:\
 &emsp;- If the first arg was 1 or 2, the channel/playlist url \
 &emsp;- If the first arg was 3, the list of video urls in the format: "video_url1, video_url2, ..."\
 &emsp;(The quotations are neccesary) 
+
+### Warning: There currently is an issue w/ the YouTube-Transcript-API, so this program will not work
