@@ -49,4 +49,6 @@ def main():
 
 
 if __name__ == "__main__":
-    print(main())
+    from youtube_transcript_api import YouTubeTranscriptApi
+    print(YouTubeTranscriptApi.get_transcript('d3WiKofD-34'))
+    #print(main())

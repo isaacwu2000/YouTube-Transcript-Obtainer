@@ -10,7 +10,7 @@ def get_video_title_from_vid_id(vid_id):
 def vid_ids_to_dict_of_title_to_transcripts(vid_IDs):
     from youtube_transcript_api import YouTubeTranscriptApi
 
-    transcripts_by_vid_title = [] # Format: [{title:transcript}, {title2:transcript}, ...]
+    transcripts_by_vid_title = [] # Format: [{title, transcript}, {title2, transcript}, ...]
     for video_ID in vid_IDs:
         try: # Tests if the video has a transcript to get
             print(video_ID)
