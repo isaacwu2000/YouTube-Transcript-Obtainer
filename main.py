@@ -12,7 +12,7 @@ def playlist_transcript(playlist_url):
     return vid_ids_to_list_of_transcripts(vid_IDs)
 def list_of_urls_transcript(list_of_vid_urls):
     vid_IDs = get_list_of_vid_ids_from_list_of_urls(list_of_vid_urls)
-    return vid_ids_to_list_of_transcripts(vid_IDs)
+    return vid_ids_to_dict_of_title_to_transcripts(vid_IDs)
 
 def main():
     import sys
