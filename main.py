@@ -50,5 +50,5 @@ def main():
 
 if __name__ == "__main__":
     from youtube_transcript_api import YouTubeTranscriptApi
-    print(YouTubeTranscriptApi.get_transcript('d3WiKofD-34'))
-    #print(main())
+    ytt_api = YouTubeTranscriptApi()
+    print(ytt_api.fetch("d3WiKofD-34"))
