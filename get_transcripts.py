@@ -24,7 +24,6 @@ def append_json(transcript={'title':'Video title', 'transcript':'Video transcrip
     with open("transcripts.json", "w") as file:
         json.dump(file_data, file, indent=4)
 
-append_json()
 def write_transcripts(vid_ids: list):
     from youtube_transcript_api.proxies import GenericProxyConfig
     load_dotenv()
@@ -43,7 +42,6 @@ def write_transcripts(vid_ids: list):
                 transcript += " " + snnipet.text # Since the transcript also contains time stamps, we extract only the text
             append_json({"title":get_title(vid_id), "transcript":transcript})
         except Exception as e:
-            print(e)    
-            quit()        
+            print("Failed to retrieve the video " + get_title(vid_id))         
         time.sleep(random.random())
         
