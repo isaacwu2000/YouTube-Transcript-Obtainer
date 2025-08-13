@@ -1,7 +1,7 @@
 from channel_url_to_vid_ids import *
 from list_of_urls_to_vid_ids import *
 from playlist_url_to_vid_ids import *
-from vid_ids_to_transcripts import *
+from get_transcripts import *
 
 def channel_transcript(channel_url):
     channel_id = get_channel_id_from_url(channel_url)
