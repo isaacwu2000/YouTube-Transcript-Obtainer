@@ -14,7 +14,15 @@ def get_title(vid_id: str) -> str:
     title = str(soup.find_all(name="title")[0]).replace("<title>","").replace("</title>","")
     return title
 
-def append_json(transcript={'title':'Video title', 'transcript':'Video transcript'}):
+def get_date(vid_id: str) -> str:
+    response = requests.get("https://www.youtube.com/watch?v=" + vid_id)
+    if response.status_code == 200:
+        soup = BeautifulSoup(response.text, "html.parser") 
+    else:
+        raise Exception("The webpage data was unable to be retrived.")
+    return str(soup.find("meta", itemprop="datePublished")['content'])
+
+def append_json(transcript={'title':'Video title', 'date':'today', 'transcript':'Video transcript'}):
     with open("transcripts.json", 'r') as file:
         try:
             file_data = json.load(file)
@@ -40,7 +48,7 @@ def write_transcripts(vid_ids: list):
             transcript = ""
             for snnipet in transcript_with_info:
                 transcript += " " + snnipet.text # Since the transcript also contains time stamps, we extract only the text
-            append_json({"title":get_title(vid_id), "transcript":transcript})
+            append_json({"title":get_title(vid_id), "date":get_date(vid_id), "transcript":transcript})
         except Exception as e:
             print("Failed to retrieve the video " + get_title(vid_id))         
         time.sleep(random.random())
