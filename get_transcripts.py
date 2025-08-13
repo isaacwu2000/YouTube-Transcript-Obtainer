@@ -16,15 +16,12 @@ def get_transcripts(vid_ids: list) -> list:
     transcripts = []
     for vid_id in vid_ids:
         try:
-            ytt_api.fetch(vid_id)
+            transcript_with_info = ytt_api.fetch(vid_id)
         except Exception as e:
             return (f"An error occured in getting the transcript from the vid: {get_title(vid_id)}.\nPlease check if the video has a transcript.\nException: {e}")
         else:
-            # Since the transcript contains time stamps, we extract only the text
-            transcript_with_info = YouTubeTranscriptApi.get_transcript(vid_id)
             transcript = ""
-            for line in transcript_with_info:
-                transcript += " " + str(line["text"])
+            for snnipet in transcript_with_info:
+                transcript += " " + snnipet.text # Since the transcript also contains time stamps, we extract only the text
             transcripts.append({"title":get_title(vid_id), "transcript":transcript})
     return transcripts
-

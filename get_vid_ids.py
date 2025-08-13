@@ -11,14 +11,14 @@ def get_channel_vid_ids(channel_url: str) -> str:
     channel_id = source_code.split('?channel_id=')[1].split('"',1)[0]
     vid_ids = []
     for vid_dict in get_channel(channel_id):
-        vid_ids.append(vid_dict['videoid'])
+        vid_ids.append(vid_dict['videoId'])
     return vid_ids
 
 def get_playlist_vid_ids(playlist_url: str) -> list:
     playlist_id = playlist_url.split("=")[1]
     vid_ids = []
     for vid_dict in get_playlist(playlist_id):
-        vid_ids.append(vid_dict['videoid'])
+        vid_ids.append(vid_dict['videoId'])
     return vid_ids
 
 def get_list_vid_ids(vid_urls: str) -> list:

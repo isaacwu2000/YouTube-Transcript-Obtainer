@@ -7,9 +7,9 @@ Run main.py with 2 command-line arguements:\
 (Ignore the filename as a command-line arguement for these instructions)
 
 The first command-line arguement should be:\
-* '1' for a transcript of all of a channel's videos\
-* '2' for a transcript of all of a playlist's videos\
-* '3' for a transcript of all of the videos in a list of urls
+* 'channel' for a transcript of all of a channel's videos\
+* 'playlist' for a transcript of all of a playlist's videos\
+* 'list' for a transcript of all of the videos in a list of url(s)
     
 The second command- line arguement should be:\
 * If the first arg was 1 or 2, the channel/playlist url \
