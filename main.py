@@ -1,6 +1,6 @@
 import sys
 from get_vid_ids import get_channel_vid_ids, get_playlist_vid_ids, get_list_vid_ids
-from get_transcripts import get_transcripts
+from get_transcripts import write_transcripts
 
 def main():
     if len(sys.argv) != 3:
@@ -15,9 +15,9 @@ def main():
                 vid_ids = get_list_vid_ids(sys.argv[2])
             case _:
                 raise Exception("Please enter a valid first command-line arguement (not including file name).\nRead README.md for more information.")
-        return get_transcripts(vid_ids)
+        write_transcripts(vid_ids)
     except Exception as e:
         return e
 
 if __name__ == "__main__":
-    print(main())
+    main()

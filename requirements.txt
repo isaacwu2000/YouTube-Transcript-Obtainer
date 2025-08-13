@@ -2,4 +2,4 @@ scrapetube
 youtube-transcript-api
 beautifulsoup4
 requests
-# pytest — This is used for running tests
+dotenv
