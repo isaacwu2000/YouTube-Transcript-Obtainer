@@ -1,8 +1,5 @@
+import json, random, os, time
 import requests
-import json
-import random
-import os
-import time
 from bs4 import BeautifulSoup
 from youtube_transcript_api import YouTubeTranscriptApi
 from youtube_transcript_api.proxies import WebshareProxyConfig
@@ -17,15 +14,17 @@ def get_title(vid_id: str) -> str:
     title = str(soup.find_all(name="title")[0]).replace("<title>","").replace("</title>","")
     return title
 
-def write_to_json(transcript: dict):
-    print('d')
-    with open("transcripts.json", 'r+') as file:
-        print('e')
-        file_data = json.load(file)
-        file_data.append(transcript)
-        print('f')
+def append_json(transcript={'title':'Video title', 'transcript':'Video transcript'}):
+    with open("transcripts.json", 'r') as file:
+        try:
+            file_data = json.load(file)
+        except json.decoder.JSONDecodeError:
+            file_data = transcript
+    file_data.append(transcript)
+    with open("transcripts.json", "w") as file:
         json.dump(file_data, file, indent=4)
 
+append_json()
 def write_transcripts(vid_ids: list):
     from youtube_transcript_api.proxies import GenericProxyConfig
     load_dotenv()
@@ -42,7 +41,7 @@ def write_transcripts(vid_ids: list):
             transcript = ""
             for snnipet in transcript_with_info:
                 transcript += " " + snnipet.text # Since the transcript also contains time stamps, we extract only the text
-            write_to_json({"title":get_title(vid_id), "transcript":transcript})
+            append_json({"title":get_title(vid_id), "transcript":transcript})
         except Exception as e:
             print(e)    
             quit()        
